@@ -53,10 +53,10 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ vars.AWS_DEFAULT_REGION }}
+        aws-region: ${{ vars.AWS_EKS_DEFAULT_REGION }}
 
     - name: Set up kubectl for Amazon EKS
-      run: aws eks --region ${{ vars.AWS_DEFAULT_REGION}} update-kubeconfig --name ${{ vars.AWS_EKS_CLUSTER_NAME}}
+      run: aws eks --region ${{ vars.AWS_EKS_DEFAULT_REGION}} update-kubeconfig --name ${{ vars.AWS_EKS_CLUSTER_NAME}}
 
     - name: Deploy to Amazon EKS
       run: |
